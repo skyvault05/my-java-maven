@@ -23,7 +23,7 @@
               spec:
                 containers:
                   - name: java-hello
-                    image: "c1t1d0s7/java-hello:{{ lookup('env', 'TAG') }}"
+                    image: "c1t1d0s7/java-hello:{{ lookup('env', 'BUILD_NUMBER') }}"
                     imagePullPolicy: Always
                     ports:
                       - containerPort: 8080 
