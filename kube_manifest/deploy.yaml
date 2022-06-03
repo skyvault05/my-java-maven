@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: java-hello
-          image: c1t1d0s7/java-hello
+          image: c1t1d0s7/java-hello:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
