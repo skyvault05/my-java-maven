@@ -15,4 +15,4 @@
   tasks:
     - command: docker container rm -f java-hello-world
       ignore_errors: yes
-    - command: docker container run -d -p 8080:8080 --name java-hello-world java-hello
+    - command: docker container run -d -p 8080:8080 --name java-hello-world c1t1d0s7/java-hello
