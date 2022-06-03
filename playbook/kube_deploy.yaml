@@ -1,0 +1,5 @@
+- hosts: kubernetes_cluster
+  gather_facts: no
+
+  tasks:
+    - command: kubectl apply -f kube_manifest/
