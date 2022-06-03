@@ -3,4 +3,7 @@
   gather_facts: false
 
   tasks:
-    - command: docker image build -t java-hello-world java-hello-world/ 
+    - command: docker image build -t java-hello-world java-hello-world/
+    - command: docker container rm -f java-hello-world
+      ignore_errros: yes
+    - command: docker container run -d -p 8080:8080 java-hello-world --name java-hello-world
