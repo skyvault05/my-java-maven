@@ -13,5 +13,6 @@
         build:
           path: /home/vagrant/java-hello-world
         name: c1t1d0s7/java-hello
+        tag: "{{ lookup('env', 'BUILD_NUMBER') }}"
         push: yes
         source: build
