@@ -11,6 +11,8 @@
 - name: Docker Run
   hosts: docker_host
   gather_facts: false
+
+  tasks:
     - command: docker container rm -f java-hello-world
       ignore_errors: yes
     - command: docker container run -d -p 8080:8080 --name java-hello-world java-hello
