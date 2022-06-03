@@ -3,4 +3,4 @@
   gather_facts: false
 
   tasks:
-    - command: docker image build -t java-hello-world java-hello-world/Dockerfile 
+    - command: docker image build -t java-hello-world java-hello-world/ . 
