@@ -11,6 +11,7 @@
           kind: Deployment
           metadata:
             name: java-hello
+            namespace: default
           spec:
             replicas: 3
             selector:
@@ -27,3 +28,19 @@
                     imagePullPolicy: Always
                     ports:
                       - containerPort: 8080 
+    - name: Create Service
+      k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: java-hello-svc
+          spec:
+            type: NodePort
+            selector:
+              app: java-hello
+            ports:
+              - port: 80
+                targetPort: 8080
+                nodePort: 31313
