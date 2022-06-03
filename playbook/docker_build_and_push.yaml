@@ -5,7 +5,7 @@
     - name: Login to Docker Hub
       docker_login:
         username: c1t1d0s7
-        password: "{{ lookup('env', 'PASS' }}"
+        password: "{{ lookup('env', 'PASS') }}"
         reauthorize: yes
 
     - name: Build and Push Image
