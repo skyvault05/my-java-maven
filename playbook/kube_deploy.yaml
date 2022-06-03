@@ -36,6 +36,7 @@
           kind: Service
           metadata:
             name: java-hello-svc
+            namespace: default
           spec:
             type: NodePort
             selector:
