@@ -2,4 +2,28 @@
   gather_facts: no
 
   tasks:
-    - command: kubectl apply -f java-hello-world/kube_manifest/
+    #- command: kubectl apply -f java-hello-world/kube_manifest/
+    - name: Create Deployment
+      k8s:
+        state: present
+        definition:
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: java-hello
+          spec:
+            replicas: 3
+            selector:
+              matchLabels:
+                app: java-hello
+            template:
+              metadata:
+                labels:
+                  app: java-hello
+              spec:
+                containers:
+                  - name: java-hello
+                    image: "c1t1d0s7/java-hello:{{ lookup('env', 'TAG') }}"
+                    imagePullPolicy: Always
+                    ports:
+                      - containerPort: 8080 
