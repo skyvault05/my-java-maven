@@ -1,4 +1,4 @@
-- hosts: kubernetes_cluster
+- hosts: ansible_host
   gather_facts: no
 
   tasks:
