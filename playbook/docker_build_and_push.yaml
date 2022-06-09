@@ -4,15 +4,15 @@
   tasks:
     - name: Login to Docker Hub
       docker_login:
-        username: c1t1d0s7
-        password: "{{ lookup('env', 'TOKEN') }}"
+        username: skyvault05
+        password: "{{ lookup('env', 'PASS') }}"
         reauthorize: yes
 
     - name: Build and Push Image
       docker_image:
         build:
           path: /home/vagrant/java-hello-world
-        name: c1t1d0s7/java-hello
+        name: skyvault05/jenkins-test-project
         tag: "{{ lookup('env', 'BUILD_NUMBER') }}"
         push: yes
         source: build

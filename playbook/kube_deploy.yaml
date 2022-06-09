@@ -24,7 +24,7 @@
               spec:
                 containers:
                   - name: java-hello
-                    image: "c1t1d0s7/java-hello:{{ lookup('env', 'BUILD_NUMBER') }}"
+                    image: "skyvault05/jenkins-test-project:{{ lookup('env', 'BUILD_NUMBER') }}"
                     imagePullPolicy: Always
                     ports:
                       - containerPort: 8080 
