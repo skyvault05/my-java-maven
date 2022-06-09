@@ -13,6 +13,6 @@
         build:
           path: /home/vagrant/java-hello-world
         name: skyvault05/jenkins-test-project
-        tag: 15001
+        tag: "{{ lookup('env', 'BUILD_NUMBER') }}"
         push: yes
         source: build
