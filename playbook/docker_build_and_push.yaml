@@ -1,18 +1,9 @@
-- hosts: ansible_host
-  gather_facts: no
+- name: Docker Image Build and Push
+  hosts: ansible_host
+  gather_facts: false
 
   tasks:
-    - name: Login to Docker Hub
-      docker_login:
-        username: skyvault05
-        password: "{{ lookup('env', 'PASS') }}"
-        reauthorize: yes
-
-    - name: Build and Push Image
-      docker_image:
-        build:
-          path: /home/vagrant/java-hello-world
-        name: skyvault05/jenkins-test-project
-        tag: "{{ lookup('env', 'BUILD_NUMBER') }}"
-        push: yes
-        source: build
+    - command: docker image build -t skyvault05/jenkins-test-project:"{{ lookup('env', 'BUILD_NUMBER') }}" java-hello-world/
+    - command: docker login -u skyvault05 -p "{{ lookup('env', 'PASS') }}"
+    - command: docker push skyvault05/jenkins-test-project:"{{ lookup('env', 'BUILD_NUMBER') }}"
+    - command: docker logout
