@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: ansible_host
   gather_facts: no
 
   tasks:
