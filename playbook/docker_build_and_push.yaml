@@ -12,6 +12,7 @@
       docker_image:
         build:
           path: /home/vagrant/java-hello-world
-        name: skyvault05/jenkins-test-project:"{{ lookup('env', 'BUILD_NUMBER') }}"
+        name: skyvault05/jenkins-test-project
+        tag: 15001
         push: yes
         source: build
