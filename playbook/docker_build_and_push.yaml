@@ -1,5 +1,5 @@
-- hosts: ansible_host
-  gather_facts: no
+- hosts: all
+  gather_facts: ansible_host
 
   tasks:
     - name: Login to Docker Hub
